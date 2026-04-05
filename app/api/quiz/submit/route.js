@@ -20,7 +20,7 @@ export async function POST(request) {
     if (studentId) {
         try {
             const prefix = isTeacherQuiz ? "Official Quiz: " : "Practice Quiz: ";
-            await fetch('http://localhost:8081/api/marks', {
+            await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081'}/api/marks`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
