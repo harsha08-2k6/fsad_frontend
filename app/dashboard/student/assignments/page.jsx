@@ -109,6 +109,19 @@ export default function StudentAssignmentsPage() {
                                     {formatDistanceToNow(new Date(assignment.deadline), { addSuffix: true })}
                                 </div>
                             </div>
+                            {(assignment.file_url || assignment.fileUrl) && (
+                                <div className="mt-4 pt-4 border-t border-gray-100">
+                                    <a 
+                                        href={assignment.file_url || assignment.fileUrl} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer" 
+                                        className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 bg-blue-50 px-3 py-1.5 rounded-md transition-colors"
+                                    >
+                                        <FileText className="w-4 h-4 mr-2" />
+                                        View Attachment
+                                    </a>
+                                </div>
+                            )}
                         </div>
                         <Link href={`/dashboard/student/assignments/${assignment.id}`}>
                             <Button className="w-full md:w-auto">
