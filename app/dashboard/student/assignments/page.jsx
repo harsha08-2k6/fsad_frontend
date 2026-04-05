@@ -154,6 +154,19 @@ export default function StudentAssignmentsPage() {
                                     <Clock className="w-4 h-4 mr-1" />
                                     Submitted on {new Date(submission.submitted_at || submission.submittedAt).toLocaleDateString()}
                                 </div>
+                                {(assignment.file_url || assignment.fileUrl) && (
+                                    <div className="mt-3">
+                                        <a 
+                                            href={assignment.file_url || assignment.fileUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="inline-flex items-center text-xs font-medium text-blue-600 hover:text-blue-800 bg-blue-50/50 px-2.5 py-1 rounded-md transition-colors border border-blue-100"
+                                        >
+                                            <FileText className="w-3 h-3 mr-1.5" />
+                                            Original Attachment
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                             <div className="flex items-center space-x-2">
                                 {submission.grade !== undefined ? (<div className="text-right mr-2">
