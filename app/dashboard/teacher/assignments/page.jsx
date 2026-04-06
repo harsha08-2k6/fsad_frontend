@@ -31,7 +31,8 @@ import {
     Filter,
     Download,
     Loader2,
-    Info
+    Info,
+    GraduationCap
 } from "lucide-react";
 import { format, isAfter, startOfDay } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
