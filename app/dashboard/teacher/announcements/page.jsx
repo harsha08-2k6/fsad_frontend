@@ -250,36 +250,39 @@ export default function TeacherAnnouncementsPage() {
                         <p className="text-sm text-gray-300 mt-2 max-w-xs mx-auto">Click "New Announcement" to start communicating with your portal users.</p>
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 pt-6">
                         {announcements.map((ann) => {
                             const cfg = TARGET_CONFIG[ann.target] || TARGET_CONFIG.all;
                             const Icon = cfg.icon;
                             return (
-                                <div key={ann.id} className="content-card group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-0 overflow-visible relative h-full flex flex-col mt-4">
+                                <div key={ann.id} className="group relative flex flex-col h-full mt-6">
                                     {/* Audience Badge Floating */}
-                                    <div className={`absolute -top-4 left-6 flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg ${cfg.bg} ${cfg.text} border-2 ${cfg.border} z-20 transition-transform group-hover:scale-110`}>
-                                        <Icon className="w-3 h-3" />
+                                    <div className={`absolute -top-4 left-6 flex items-center gap-2 text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-2xl shadow-xl ${cfg.bg} ${cfg.text} border-2 ${cfg.border} z-30 transition-all group-hover:scale-110 group-hover:-translate-y-1`}>
+                                        <Icon className="w-4 h-4" />
                                         {cfg.label}
                                     </div>
 
-                                    <div className="content-card-header bg-gray-50/50 border-b-0 pt-10 pb-2">
-                                        <h3 className="font-extrabold text-gray-900 text-xl tracking-tight leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">{ann.title}</h3>
-                                    </div>
-                                    
-                                    <div className="px-6 pb-2 pt-1 flex items-center gap-2 text-[12px] font-bold text-gray-500 uppercase tracking-tighter">
-                                        <CalendarDays className="w-4 h-4 text-blue-500/70" />
-                                        {new Date(ann.date || ann.created_at || ann.createdAt).toLocaleDateString("en-IN", {
-                                            day: "2-digit", month: "long", year: "numeric"
-                                        })}
-                                    </div>
+                                    <div className="content-card overflow-visible h-full flex flex-col border-none shadow-[0_15px_40px_rgba(0,0,0,0.06)] group-hover:shadow-[0_20px_60px_rgba(37,99,235,0.12)] transition-all duration-500 rounded-[2.5rem] bg-white">
+                                        <div className="content-card-header bg-navy/5 border-b-0 pt-12 pb-2 rounded-t-[2.5rem]">
+                                            <h3 className="px-8 font-black text-navy text-2xl tracking-tighter leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">{ann.title}</h3>
+                                        </div>
+                                        
+                                        <div className="px-8 pb-4 pt-1 flex items-center gap-2 text-[12px] font-bold text-gray-400 uppercase tracking-widest">
+                                            <div className="p-1 px-2.5 bg-gray-100 rounded-lg flex items-center gap-1.5">
+                                                <CalendarDays className="w-3.5 h-3.5 text-blue-500" />
+                                                {new Date(ann.date || ann.created_at || ann.createdAt).toLocaleDateString("en-IN", {
+                                                    day: "2-digit", month: "long", year: "numeric"
+                                                })}
+                                            </div>
+                                        </div>
 
-                                    <div className="content-card-body flex-1 pt-2">
-                                        <p className="text-gray-600 text-sm leading-relaxed line-clamp-4 font-medium whitespace-pre-wrap">
-                                            {ann.content}
-                                        </p>
-                                    </div>
+                                        <div className="content-card-body px-8 flex-1 pt-2">
+                                            <p className="text-gray-600 text-base leading-relaxed line-clamp-5 font-bold opacity-80 whitespace-pre-wrap">
+                                                {ann.content}
+                                            </p>
+                                        </div>
 
-                                    <div className="p-4 border-t border-gray-50 bg-gray-50/10 flex items-center justify-between">
+                                        <div className="px-8 py-6 border-t border-gray-50 flex items-center justify-between mt-4">
                                         <div className="flex items-center gap-1">
                                             <button
                                                 onClick={() => openEdit(ann)}
