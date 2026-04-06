@@ -106,7 +106,7 @@ export default function SubmitAssignmentPage() {
     
     if (!assignment) return (
         <div className="max-w-3xl mx-auto py-12 text-center space-y-4">
-            <AlertCircle className="w-16 h-16 text-red-500 mx-auto" />
+            <CircleAlert className="w-16 h-16 text-red-500 mx-auto" />
             <h2 className="text-2xl font-bold text-gray-900">Assignment not found</h2>
             <Link href="/dashboard/student/assignments">
                 <Button variant="outline">Back to Assignments</Button>
@@ -207,7 +207,7 @@ export default function SubmitAssignmentPage() {
                         
                         <CardHeader className="content-card-header pb-2">
                             <CardTitle className="text-xl flex items-center gap-2">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                                <CircleCheck className="w-5 h-5 text-emerald-500" />
                                 Status
                             </CardTitle>
                         </CardHeader>
@@ -252,7 +252,7 @@ export default function SubmitAssignmentPage() {
                                                         required 
                                                     />
                                                     <div className="h-14 w-full rounded-2xl border-2 border-gray-100 bg-gray-50 group-hover/up:bg-white group-hover/up:border-primary/30 transition-all flex items-center px-4 gap-3">
-                                                        <UploadCloud className="w-5 h-5 text-gray-400" />
+                                                        <CloudUpload className="w-5 h-5 text-gray-400" />
                                                         <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest truncate">{file ? file.name : "Select new file"}</span>
                                                     </div>
                                                 </div>
@@ -266,7 +266,7 @@ export default function SubmitAssignmentPage() {
                             ) : (
                                 <div className="space-y-6">
                                     <div className="text-center py-8 px-4 border-2 border-dashed border-primary/20 rounded-2xl bg-primary/5">
-                                        <UploadCloud className="w-12 h-12 text-primary mx-auto mb-3" />
+                                        <CloudUpload className="w-12 h-12 text-primary mx-auto mb-3" />
                                         <h3 className="text-xs font-black text-navy uppercase tracking-widest">Upload Work</h3>
                                         <p className="text-[10px] font-bold text-gray-400 mt-1 uppercase tracking-tighter">
                                             PDF, DOCX, or Image (Max 10MB)

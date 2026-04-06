@@ -18,10 +18,10 @@ import { Label } from "@/components/ui/label";
 import { 
     Trash2, 
     Edit, 
-    CalendarIcon, 
+    Calendar as CalendarIcon, 
     CalendarClock, 
-    CheckCircle2, 
-    AlertCircle, 
+    CircleCheck, 
+    CircleAlert, 
     FileText, 
     Plus, 
     Users, 
@@ -29,7 +29,8 @@ import {
     ChevronRight,
     Search,
     Filter,
-    Download
+    Download,
+    Loader2
 } from "lucide-react";
 import { format, isAfter, startOfDay } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";

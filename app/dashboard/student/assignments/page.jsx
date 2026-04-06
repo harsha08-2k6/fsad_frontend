@@ -253,13 +253,13 @@ export default function StudentAssignmentsPage() {
                                                 {!isGraded ? (
                                                     <div className="flex items-center gap-2 w-full">
                                                         <Link href={`/dashboard/student/assignments/${assignment.id}`} className="flex-1">
-                                                            <Button variant="outline" className="w-full h-12 rounded-xl text-xs font-black uppercase tracking-widest border-2 hover:bg-navy hover:text-white transition-all">
+                                                            <Button variant="outline" className="w-full h-14 rounded-2xl text-[10px] font-black uppercase tracking-widest border-2 border-navy/10 hover:bg-navy hover:text-white transition-all shadow-sm">
                                                                 Edit Submission
                                                             </Button>
                                                         </Link>
                                                         <Button 
                                                             variant="ghost" 
-                                                            className="h-12 w-12 rounded-xl text-red-400 hover:text-red-700 hover:bg-red-50 p-0"
+                                                            className="h-14 w-14 rounded-2xl text-red-500 hover:text-red-700 hover:bg-red-50 p-0 border-2 border-transparent hover:border-red-100"
                                                             onClick={async () => {
                                                                 if (confirm("Delete this submission?")) {
                                                                     try {
@@ -269,13 +269,14 @@ export default function StudentAssignmentsPage() {
                                                                 }
                                                             }}
                                                         >
-                                                            <CircleAlert className="w-5 h-5" />
+                                                            <CircleAlert className="w-6 h-6" />
                                                         </Button>
                                                     </div>
                                                 ) : (
                                                     <Link href={`/dashboard/student/assignments/${assignment.id}`} className="w-full">
-                                                        <Button className="w-full h-14 rounded-2xl bg-navy hover:bg-navy/90 text-white font-black uppercase tracking-widest text-xs shadow-xl shadow-navy/10 transform active:scale-95 transition-all">
-                                                            View Result
+                                                        <Button className="w-full h-16 btn-primary-custom rounded-2xl shadow-xl shadow-primary/20 group/btn">
+                                                            <span className="font-black uppercase tracking-[0.2em] text-xs">View Result</span>
+                                                            <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                                                         </Button>
                                                     </Link>
                                                 )}
