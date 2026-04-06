@@ -255,19 +255,19 @@ export default function TeacherAnnouncementsPage() {
                             const cfg = TARGET_CONFIG[ann.target] || TARGET_CONFIG.all;
                             const Icon = cfg.icon;
                             return (
-                                <div key={ann.id} className="content-card group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-0 overflow-visible relative h-full flex flex-col">
+                                <div key={ann.id} className="content-card group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-t-0 overflow-visible relative h-full flex flex-col mt-4">
                                     {/* Audience Badge Floating */}
-                                    <div className={`absolute -top-3 left-6 flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg ${cfg.bg} ${cfg.text} border-2 ${cfg.border} z-10`}>
+                                    <div className={`absolute -top-4 left-6 flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg ${cfg.bg} ${cfg.text} border-2 ${cfg.border} z-20 transition-transform group-hover:scale-110`}>
                                         <Icon className="w-3 h-3" />
                                         {cfg.label}
                                     </div>
 
-                                    <div className="content-card-header bg-gray-50/50 border-b-0 pt-8 pb-2">
-                                        <h3 className="font-black text-gray-900 text-lg leading-tight group-hover:text-blue-600 transition-colors line-clamp-1">{ann.title}</h3>
+                                    <div className="content-card-header bg-gray-50/50 border-b-0 pt-10 pb-2">
+                                        <h3 className="font-extrabold text-gray-900 text-xl tracking-tight leading-tight group-hover:text-blue-600 transition-colors line-clamp-2">{ann.title}</h3>
                                     </div>
                                     
-                                    <div className="px-6 pb-2 pt-1 flex items-center gap-2 text-[11px] font-bold text-gray-400 uppercase tracking-tighter">
-                                        <CalendarDays className="w-3 h-3" />
+                                    <div className="px-6 pb-2 pt-1 flex items-center gap-2 text-[12px] font-bold text-gray-500 uppercase tracking-tighter">
+                                        <CalendarDays className="w-4 h-4 text-blue-500/70" />
                                         {new Date(ann.date || ann.created_at || ann.createdAt).toLocaleDateString("en-IN", {
                                             day: "2-digit", month: "long", year: "numeric"
                                         })}

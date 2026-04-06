@@ -28,7 +28,6 @@ export default function Sidebar() {
         { href: "/dashboard/teacher/subjects", icon: BookOpen, label: "Subjects" },
         { href: "/dashboard/teacher/classes", icon: School, label: "Classes" },
         { href: "/dashboard/teacher/assignments", icon: ClipboardList, label: "Assignments" },
-        { href: "/dashboard/teacher/marks", icon: FileText, label: "Marks" },
         { href: "/dashboard/teacher/announcements", icon: Megaphone, label: "Announcements" },
         { href: "/dashboard/settings", icon: Settings, label: "Settings" },
     ];

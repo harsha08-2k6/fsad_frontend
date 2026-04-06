@@ -296,30 +296,36 @@ export default function TeacherAssignmentsPage() {
                     const gradedCount = assignmentSubmissions.filter(s => s.status === 'graded').length;
                     
                     return (
-                        <Card key={assignment.id} className="content-card shadow-xl border-none overflow-visible group">
-                            <CardHeader className="content-card-header bg-navy/5 border-b-0 py-8 px-8 flex flex-col md:flex-row md:items-center justify-between gap-6 relative">
-                                <div className="absolute -left-1 top-8 bottom-8 w-1.5 bg-primary rounded-full transform group-hover:scale-y-110 transition-transform"></div>
-                                <div className="flex-1 space-y-3">
-                                    <div className="flex items-center gap-3 flex-wrap">
-                                        <CardTitle className="text-2xl font-black text-navy">{assignment.title}</CardTitle>
-                                        <Badge variant="outline" className="bg-white/50 border-gray-200 text-gray-400 font-black text-[10px] uppercase tracking-widest px-3 py-1">
-                                            {assignment.subject?.name || "No Class"}
-                                        </Badge>
-                                        {isOverdue && (
-                                            <Badge variant="destructive" className="animate-pulse shadow-sm shadow-red-200">
-                                                Overdue
+                        <Card key={assignment.id} className="content-card shadow-[0_20px_50px_rgba(0,0,0,0.08)] border-none overflow-visible group bg-white/70 backdrop-blur-md">
+                            <CardHeader className="content-card-header bg-navy/5 border-b border-gray-100/50 py-10 px-10 flex flex-col md:flex-row md:items-center justify-between gap-8 relative rounded-t-[2.5rem]">
+                                <div className="absolute -left-1 top-10 bottom-10 w-2 bg-blue-600 rounded-full transform group-hover:scale-y-110 transition-transform shadow-[0_0_15px_rgba(37,99,235,0.4)]"></div>
+                                <div className="flex-1 space-y-4">
+                                    <div className="flex items-center gap-4 flex-wrap">
+                                        <CardTitle className="text-3xl font-black text-navy tracking-tight leading-none">{assignment.title}</CardTitle>
+                                        <div className="flex gap-2">
+                                            <Badge variant="outline" className="bg-blue-50/50 border-blue-100 text-blue-600 font-extrabold text-[11px] uppercase tracking-widest px-4 py-1.5 rounded-xl">
+                                                {assignment.subject?.name || "No Class"}
                                             </Badge>
-                                        )}
-                                    </div>
-                                    <p className="text-gray-600 font-medium max-w-2xl leading-relaxed">{assignment.description}</p>
-                                    <div className="flex items-center gap-6 pt-2">
-                                        <div className="flex items-center gap-2 text-xs font-black text-gray-400 uppercase tracking-widest bg-white px-3 py-1.5 rounded-lg border border-gray-100 shadow-sm">
-                                            <CalendarIcon className="w-3.5 h-3.5 text-primary" />
-                                            Deadline: {format(new Date(assignment.deadline), "MMMM d, h:mm a")}
+                                            {isOverdue && (
+                                                <Badge variant="destructive" className="animate-pulse shadow-lg shadow-red-200 font-black px-4 py-1.5 rounded-xl border-2 border-white">
+                                                    PAST DUE
+                                                </Badge>
+                                            )}
                                         </div>
-                                        <div className="flex items-center gap-2 text-xs font-black text-gray-400 uppercase tracking-widest bg-white px-3 py-1.5 rounded-lg border border-gray-100 shadow-sm">
-                                            <Users className="w-3.5 h-3.5 text-emerald-500" />
-                                            {submissionCount} Submissions
+                                    </div>
+                                    <p className="text-gray-500 font-bold text-base max-w-3xl leading-relaxed opacity-80">{assignment.description}</p>
+                                    <div className="flex items-center gap-6 pt-4">
+                                        <div className="flex items-center gap-3 text-xs font-black text-gray-500 uppercase tracking-widest bg-white/80 px-4 py-2.5 rounded-2xl border border-gray-100 shadow-sm transition-transform hover:scale-105">
+                                            <div className="p-1.5 bg-blue-50 rounded-lg">
+                                                <CalendarIcon className="w-4 h-4 text-blue-600" />
+                                            </div>
+                                            <span>Deadline: {format(new Date(assignment.deadline), "MMMM d, h:mm a")}</span>
+                                        </div>
+                                        <div className="flex items-center gap-3 text-xs font-black text-emerald-600 uppercase tracking-widest bg-emerald-50/50 px-4 py-2.5 rounded-2xl border border-emerald-100 shadow-sm transition-transform hover:scale-105">
+                                            <div className="p-1.5 bg-emerald-100 rounded-lg">
+                                                <Users className="w-4 h-4 text-emerald-600" />
+                                            </div>
+                                            <span>{submissionCount} Submissions</span>
                                         </div>
                                     </div>
                                 </div>
@@ -359,18 +365,21 @@ export default function TeacherAssignmentsPage() {
                                         <h3 className="text-lg font-bold text-gray-400">No submissions</h3>
                                     </div>
                                 ) : (
-                                    <div className="space-y-6">
-                                        <div className="flex items-center justify-between">
-                                            <h3 className="font-black text-navy text-sm uppercase tracking-widest pl-1 border-l-4 border-emerald-500 ml-1">Student Submissions</h3>
-                                            <div className="text-xs font-bold text-gray-400 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
-                                                Graded: <span className="text-emerald-600">{gradedCount}</span> / {submissionCount}
+                                    <div className="space-y-8">
+                                        <div className="flex items-center justify-between border-b border-gray-100 pb-4">
+                                            <h3 className="font-black text-navy text-base uppercase tracking-tighter flex items-center gap-3">
+                                                <div className="h-4 w-1.5 bg-emerald-500 rounded-full"></div>
+                                                Student Review Queue
+                                            </h3>
+                                            <div className="text-xs font-black text-gray-500 bg-gray-100/50 px-4 py-2 rounded-2xl border border-gray-200/50 uppercase tracking-widest">
+                                                Status: <span className="text-emerald-600 ml-1">{gradedCount} Graded</span> / <span className="text-blue-600">{submissionCount} Total</span>
                                             </div>
                                         </div>
                                         
-                                        <div className="grid grid-cols-1 gap-4">
+                                        <div className="grid grid-cols-1 gap-6">
                                             {assignmentSubmissions.map((submission) => (
-                                                <div key={submission.id} className="relative group/sub overflow-hidden rounded-2xl border border-gray-100 bg-white hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
-                                                    <div className="p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                                                <div key={submission.id} className="relative group/sub overflow-hidden rounded-[2rem] border-2 border-gray-100/50 bg-white hover:border-blue-600/30 hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] transition-all duration-400">
+                                                    <div className="p-8 flex flex-col md:flex-row md:items-center justify-between gap-10">
                                                        {/* Student Details */}
                                                         <div className="flex items-center gap-4">
                                                             <div className="h-12 w-12 rounded-full bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center font-black text-gray-400 group-hover/sub:from-primary/10 group-hover/sub:to-primary/20 group-hover/sub:text-primary transition-all">
