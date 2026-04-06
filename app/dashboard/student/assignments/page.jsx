@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
     Clock, 
-    CheckCircle, 
-    AlertCircle, 
+    CircleCheck, 
+    CircleAlert, 
     ArrowRight, 
     FileText, 
     Calendar,
@@ -15,13 +15,12 @@ import {
     Filter,
     GraduationCap,
     BookOpen,
-    CircleCheck,
     CalendarClock,
     LayoutGrid,
     ListFilter
 } from "lucide-react";
 import Link from "next/link";
-import { formatDistanceToNow } from "date-fns";
+import { format, formatDistanceToNow } from "date-fns";
 
 export default function StudentAssignmentsPage() {
     const { data: session } = useSession();
@@ -222,7 +221,7 @@ export default function StudentAssignmentsPage() {
                                                     {assignment.subject?.name || "Global"}
                                                 </Badge>
                                                 <div className="flex items-center gap-1.5 px-3 py-1 bg-emerald-50 border border-emerald-100 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-widest">
-                                                    <CheckCircle className="w-3 h-3" />
+                                                    <CircleCheck className="w-3 h-3" />
                                                     Submitted
                                                 </div>
                                             </div>
@@ -270,7 +269,7 @@ export default function StudentAssignmentsPage() {
                                                                 }
                                                             }}
                                                         >
-                                                            <AlertCircle className="w-5 h-5" />
+                                                            <CircleAlert className="w-5 h-5" />
                                                         </Button>
                                                     </div>
                                                 ) : (
