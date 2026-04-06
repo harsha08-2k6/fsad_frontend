@@ -283,26 +283,27 @@ export default function TeacherAnnouncementsPage() {
                                         </div>
 
                                         <div className="px-8 py-6 border-t border-gray-50 flex items-center justify-between mt-4">
-                                        <div className="flex items-center gap-1">
-                                            <button
-                                                onClick={() => openEdit(ann)}
-                                                className="p-2 rounded-xl text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-all active:scale-95"
-                                                title="Edit Message"
-                                            >
-                                                <Pencil className="w-4 h-4" />
-                                            </button>
-                                            <button
-                                                onClick={() => setDeleteTarget(ann)}
-                                                className="p-2 rounded-xl text-gray-400 hover:text-red-500 hover:bg-red-50 transition-all active:scale-95"
-                                                title="Remove Post"
-                                            >
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
-                                        </div>
-                                        
-                                        <div className="flex items-center gap-1">
-                                            <div className={`w-2 h-2 rounded-full animate-pulse bg-gradient-to-r ${cfg.gradient}`}></div>
-                                            <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest">Active</span>
+                                            <div className="flex items-center gap-1">
+                                                <button
+                                                    onClick={() => openEdit(ann)}
+                                                    className="p-2 rounded-xl text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-all active:scale-95"
+                                                    title="Edit Message"
+                                                >
+                                                    <Pencil className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    onClick={() => setDeleteTarget(ann)}
+                                                    className="p-2 rounded-xl text-gray-400 hover:text-red-500 hover:bg-red-50 transition-all active:scale-95"
+                                                    title="Remove Post"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                            
+                                            <div className="flex items-center gap-1">
+                                                <div className={`w-2 h-2 rounded-full animate-pulse bg-gradient-to-r ${cfg.gradient}`}></div>
+                                                <span className="text-[10px] font-black text-gray-300 uppercase tracking-widest">Active</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
