@@ -30,7 +30,8 @@ import {
     Search,
     Filter,
     Download,
-    Loader2
+    Loader2,
+    Info
 } from "lucide-react";
 import { format, isAfter, startOfDay } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
@@ -266,7 +267,7 @@ export default function TeacherAssignmentsPage() {
             {successMessage && (
                 <div className="flex items-center gap-3 rounded-2xl border border-green-200 bg-green-50 px-6 py-4 text-green-800 shadow-sm animate-in slide-in-from-top duration-300">
                     <div className="bg-green-100 p-2 rounded-full">
-                        <CheckCircle2 className="h-5 w-5 text-green-600 shrink-0" />
+                        <CircleCheck className="h-5 w-5 text-green-600 shrink-0" />
                     </div>
                     <span className="text-sm font-bold tracking-tight">{successMessage}</span>
                 </div>
@@ -624,7 +625,7 @@ export default function TeacherAssignmentsPage() {
                         </div>
                         {extendError && (
                             <div className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 p-4 text-red-700 animate-in shake duration-300">
-                                <AlertCircle className="h-5 w-5 shrink-0" />
+                                <CircleAlert className="h-5 w-5 shrink-0" />
                                 <span className="text-sm font-bold">{extendError}</span>
                             </div>
                         )}
