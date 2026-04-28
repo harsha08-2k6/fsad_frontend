@@ -1,9 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 export default function VerifyOtpPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: "1rem", textAlign: "center" }}>Loading...</div>}>
+      <VerifyOtpContent />
+    </Suspense>
+  );
+}
+
+function VerifyOtpContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
