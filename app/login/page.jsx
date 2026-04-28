@@ -176,6 +176,19 @@ export default function LoginPage() {
           gap: 0.375rem;
         }
 
+        .lp-forgot {
+          text-align: right;
+          font-size: 0.75rem;
+          margin-top: -0.25rem;
+          margin-bottom: 0.75rem;
+        }
+        .lp-forgot a {
+          color: #4f46e5;
+          font-weight: 600;
+          text-decoration: none;
+        }
+        .lp-forgot a:hover { text-decoration: underline; }
+
         /* Submit button */
         .lp-btn {
           width: 100%;
@@ -268,6 +281,10 @@ export default function LoginPage() {
                 required
                 autoComplete="current-password"
               />
+            </div>
+
+            <div className="lp-forgot">
+              <Link href="/forgot-password">Forgot password?</Link>
             </div>
 
             {/* CAPTCHA — scaled down to stay compact */}

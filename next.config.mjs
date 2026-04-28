@@ -7,6 +7,18 @@ const nextConfig = {
                 destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081'}/api/register`,
             },
             {
+                source: "/api/auth/forgot-password",
+                destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081'}/api/auth/forgot-password`,
+            },
+            {
+                source: "/api/auth/verify-otp",
+                destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081'}/api/auth/verify-otp`,
+            },
+            {
+                source: "/api/auth/reset-password",
+                destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081'}/api/auth/reset-password`,
+            },
+            {
                 source: "/api/teachers/active",
                 destination: `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8081'}/api/teachers/active`,
             },
